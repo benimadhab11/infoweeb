@@ -11,7 +11,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@ComponentScan({"com.bmk.infoweeb.client","com.bmk.infoweeb.config","com.bmk.infoweeb.controller"})
+@ComponentScan({"com.bmk.infoweeb.client","com.bmk.infoweeb.config","com.bmk.infoweeb.controller","com.bmk.infoweeb"})
 public class InfoweebApplication {
 
 

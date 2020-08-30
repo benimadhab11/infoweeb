@@ -1,8 +1,7 @@
 package com.bmk.infoweeb.client;
 
 import com.bmk.infoweeb.config.LocalConfig;
-import com.bmk.infoweeb.model.AllAnimeModel;
-import com.bmk.infoweeb.model.AnimeModel;
+import com.bmk.infoweeb.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +16,7 @@ public class AnimeClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<AnimeModel> getAnimeBy(String category, String page, String type){
+    public List<AnimeModel> getAnimeListBy(String category, String page, String type){
 
         String urlPath = localConfig.getUrl()
                                     .concat("/")
@@ -30,6 +29,34 @@ public class AnimeClient {
         AllAnimeModel result = restTemplate.getForObject(urlPath, AllAnimeModel.class);
         return result.getAnimeModels();
     }
+
+    public AnimeDetailModel getAnimeByMalId(String mal_id){
+        String urlPath = localConfig.getUrl()
+                .concat("/anime/")
+                .concat(mal_id);
+
+        AnimeDetailModel result = restTemplate.getForObject(urlPath, AnimeDetailModel.class);
+        return result;
+
+    }
+
+    public Model getAnimeDetails(String mal_id, String details){
+        String urlPath = localConfig.getUrl()
+                .concat("/anime/")
+                .concat(mal_id)
+                .concat("/")
+                .concat(details);
+        switch(details){
+            case "episodes":
+                AllEpisodeModel result = restTemplate.getForObject(urlPath, AllEpisodeModel.class);
+                return result;
+            default:
+                Model modelResult = restTemplate.getForObject(urlPath, Model.class);
+                return modelResult;
+        }
+
+    }
+
 
 
 

@@ -4,7 +4,7 @@ package com.bmk.infoweeb.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnimeModel {
+public class AnimeModel extends Model{
 
     private int mal_id;
     private int rank;
@@ -16,6 +16,8 @@ public class AnimeModel {
     private String start_date;
     private String end_date;
     private int members;
+
+
 
     public int getMal_id() {
         return mal_id;
