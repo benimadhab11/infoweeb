@@ -1,10 +1,10 @@
-package com.bmk.infoweeb.model;
+package com.bmk.infoweeb.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnimeModel extends Model{
+public class AnimeDTO extends BaseDTO {
 
     private int mal_id;
     private int rank;

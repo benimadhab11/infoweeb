@@ -1,10 +1,10 @@
-package com.bmk.infoweeb.model;
+package com.bmk.infoweeb.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EpisodeModel extends Model{
+public class EpisodeDTO extends BaseDTO {
 
     private int episode_id;
 

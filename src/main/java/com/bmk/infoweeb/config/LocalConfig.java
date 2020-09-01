@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -27,6 +28,7 @@ public class LocalConfig {
         // Do any additional configuration here
         return builder.build();
     }
+
 
 // standard getters and setters
 }

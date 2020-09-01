@@ -1,7 +1,7 @@
 package com.bmk.infoweeb.client;
 
 import com.bmk.infoweeb.config.LocalConfig;
-import com.bmk.infoweeb.model.*;
+import com.bmk.infoweeb.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,7 +16,7 @@ public class AnimeClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<AnimeModel> getAnimeListBy(String category, String page, String type){
+    public List<AnimeDTO> getAnimeListBy(String category, String page, String type){
 
         String urlPath = localConfig.getUrl()
                                     .concat("/")
@@ -26,21 +26,21 @@ public class AnimeClient {
                                     .concat("/")
                                     .concat(type);
 
-        AllAnimeModel result = restTemplate.getForObject(urlPath, AllAnimeModel.class);
+        AllAnimeDTO result = restTemplate.getForObject(urlPath, AllAnimeDTO.class);
         return result.getAnimeModels();
     }
 
-    public AnimeDetailModel getAnimeByMalId(String mal_id){
+    public AnimeDetailDTO getAnimeByMalId(String mal_id){
         String urlPath = localConfig.getUrl()
                 .concat("/anime/")
                 .concat(mal_id);
 
-        AnimeDetailModel result = restTemplate.getForObject(urlPath, AnimeDetailModel.class);
+        AnimeDetailDTO result = restTemplate.getForObject(urlPath, AnimeDetailDTO.class);
         return result;
 
     }
 
-    public Model getAnimeDetails(String mal_id, String details){
+    public BaseDTO getAnimeDetails(String mal_id, String details){
         String urlPath = localConfig.getUrl()
                 .concat("/anime/")
                 .concat(mal_id)
@@ -48,11 +48,11 @@ public class AnimeClient {
                 .concat(details);
         switch(details){
             case "episodes":
-                AllEpisodeModel result = restTemplate.getForObject(urlPath, AllEpisodeModel.class);
+                AllEpisodeDTO result = restTemplate.getForObject(urlPath, AllEpisodeDTO.class);
                 return result;
             default:
-                Model modelResult = restTemplate.getForObject(urlPath, Model.class);
-                return modelResult;
+                BaseDTO baseDTOResult = restTemplate.getForObject(urlPath, BaseDTO.class);
+                return baseDTOResult;
         }
 
     }

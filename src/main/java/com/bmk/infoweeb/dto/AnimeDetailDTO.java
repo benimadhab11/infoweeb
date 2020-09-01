@@ -1,9 +1,9 @@
-package com.bmk.infoweeb.model;
+package com.bmk.infoweeb.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnimeDetailModel extends AnimeModel{
+public class AnimeDetailDTO extends AnimeDTO {
 
     private String synopsis;
     private String rating;

@@ -1,13 +1,10 @@
-package com.bmk.infoweeb.model;
+package com.bmk.infoweeb.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Model {
+public class BaseDTO {
 
     @JsonIgnore
     private String request_hash;
