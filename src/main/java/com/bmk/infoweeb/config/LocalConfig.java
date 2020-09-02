@@ -1,5 +1,6 @@
 package com.bmk.infoweeb.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,11 @@ public class LocalConfig {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         // Do any additional configuration here
         return builder.build();
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
 

@@ -3,7 +3,6 @@ package com.bmk.infoweeb.controller;
 import com.bmk.infoweeb.model.User;
 import com.bmk.infoweeb.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,8 +14,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody
-    String addNewUser (@RequestParam String name
+    public @ResponseBody String addNewUser (@RequestParam String name
             , @RequestParam String email) {
 
         User n = new User();
