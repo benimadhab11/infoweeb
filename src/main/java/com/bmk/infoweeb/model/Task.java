@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Getter @Setter
@@ -27,8 +28,8 @@ public class Task implements Serializable {
     private String taskDetails;
     private String taskCategory;
 
-    private Timestamp startTimeStamp;
-    private Timestamp endTimeStamp;
-    private String minuteSpent;
+    private Date startTimeStamp;
+    private Date endTimeStamp;
+    private int minuteSpent;
 
 }

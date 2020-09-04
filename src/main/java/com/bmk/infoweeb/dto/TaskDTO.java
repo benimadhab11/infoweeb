@@ -1,13 +1,14 @@
 package com.bmk.infoweeb.dto;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class TaskDTO {
 
     private String taskName;
     private String taskDetails;
     private String taskCategory;
-    private String minuteSpent;
+    private int minuteSpent;
 
     public String getTaskName() {
         return taskName;
@@ -33,11 +34,12 @@ public class TaskDTO {
         this.taskCategory = taskCategory;
     }
 
-    public String getMinuteSpent() {
+    public int getMinuteSpent() {
         return minuteSpent;
     }
 
-    public void setMinuteSpent(String minuteSpent) {
+    public void setMinuteSpent(int minuteSpent) {
         this.minuteSpent = minuteSpent;
     }
+
 }
